@@ -41,6 +41,10 @@ mkdir -p "$HOME/.config"
 link_dir "$DOTFILES_DIR/.config/nvim"      "$HOME/.config/nvim"
 link_dir "$DOTFILES_DIR/.config/fish"      "$HOME/.config/fish"
 link_dir "$DOTFILES_DIR/.config/karabiner" "$HOME/.config/karabiner"
+link_dir "$DOTFILES_DIR/.config/opencode"  "$HOME/.config/opencode"
+
+# --- Warp (vive en $HOME/.warp) ---
+link_dir "$DOTFILES_DIR/.warp" "$HOME/.warp"
 
 echo ""
 echo "✅ Dotfiles instalados correctamente."

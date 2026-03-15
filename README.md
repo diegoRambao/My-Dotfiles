@@ -7,9 +7,11 @@ Archivos de configuración personal, versionados con git y enlazados con symlink
 ```
 dotfiles/
 ├── .config/
-│   ├── nvim/          # Neovim (LazyVim)
+│   ├── nvim/          # Neovim (AstroNvim)
 │   ├── fish/          # Fish shell
-│   └── karabiner/     # Karabiner-Elements (remapeo de teclado)
+│   ├── karabiner/     # Karabiner-Elements (remapeo de teclado)
+│   └── opencode/      # OpenCode AI (config, tema, tui)
+├── .warp/             # Warp terminal (keybindings, temas)
 ├── zshrc              # Zsh config
 ├── zprofile           # Zsh profile (env vars tempranas)
 ├── bashrc             # Bash config
