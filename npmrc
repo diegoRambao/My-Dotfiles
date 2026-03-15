@@ -1,0 +1,6 @@
+registry=https://nequi.jfrog.io/artifactory/api/npm/nequi-npm/
+@angular:registry=https://registry.npmjs.org/
+@ionic:registry=https://registry.npmjs.org/
+strict-ssl=false
+ignore-scripts=true
+//nequi.jfrog.io/artifactory/api/npm/nequi-npm/:_authToken=${NPM_TOKEN}
