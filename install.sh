@@ -34,7 +34,6 @@ link "$DOTFILES_DIR/bashrc"       "$HOME/.bashrc"
 link "$DOTFILES_DIR/bash_profile" "$HOME/.bash_profile"
 link "$DOTFILES_DIR/gitconfig"    "$HOME/.gitconfig"
 link "$DOTFILES_DIR/ideavimrc"    "$HOME/.ideavimrc"
-link "$DOTFILES_DIR/npmrc"        "$HOME/.npmrc"
 
 # --- Directorios en .config ---
 mkdir -p "$HOME/.config"

@@ -18,7 +18,6 @@ dotfiles/
 ├── bash_profile       # Bash profile
 ├── gitconfig          # Git config global
 ├── ideavimrc          # Vim bindings para JetBrains
-├── npmrc              # npm config
 ├── install.sh         # Script de instalación (crea symlinks)
 └── README.md          # Este archivo
 ```
