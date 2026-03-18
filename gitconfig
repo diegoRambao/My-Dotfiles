@@ -12,6 +12,16 @@
 	light = false
 	line-numbers = true
 	side-by-side = false
+	syntax-theme = "tokyonight-custom"
+	minus-style = "syntax #1b1021"
+	minus-emph-style = "syntax #37121e"
+	plus-style = "syntax #011e17"
+	plus-emph-style = "syntax #0a3a1f"
+	hunk-header-style = "syntax #011628"
+	hunk-header-decoration-style = "#547998 ul"
+	line-numbers-minus-style = "#f7768e"
+	line-numbers-plus-style = "#9ece6a"
+	line-numbers-zero-style = "#627E97"
 [merge]
 	conflictstyle = diff3
 [diff]

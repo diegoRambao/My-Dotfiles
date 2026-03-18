@@ -216,3 +216,13 @@ alias gloga='git log --oneline --decorate --graph --all'
 
 # opencode
 export PATH=/Users/andres.rambao/.opencode/bin:$PATH
+
+# Yazi wrapper - cd to last visited directory on exit
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
