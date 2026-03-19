@@ -7,7 +7,8 @@ return {
 
   -- ── Language packs ──
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.typescript" }, -- vtsls + prettier + eslint-lsp + treesitter (cubre JS/TS/React/JSX/TSX)
+  { import = "astrocommunity.pack.typescript" }, -- vtsls + treesitter JS/TS/JSX/TSX
+  { import = "astrocommunity.pack.eslint" }, -- eslint-lsp via Mason
   { import = "astrocommunity.pack.json" }, -- JSON/JSONC
   -- { import = "astrocommunity.pack.angular" }, -- Desactivado: Angular LS requiere TS >= 5.0, el proyecto usa TS 4.8.4 y ngserver crashea
   { import = "astrocommunity.pack.astro" }, -- Astro LS + treesitter
