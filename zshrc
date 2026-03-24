@@ -156,7 +156,7 @@ export PATH=$PATH:./node_modules/.bin
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 export ANDROID_HOME=/Users/andres.rambao/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/:$PATH
@@ -215,6 +215,8 @@ alias gloga='git log --oneline --decorate --graph --all'
 
 
 alias ls='eza --icons --grid --group-directories-first'
+
+alias lgi='lazygit'
 
 # opencode
 export PATH=/Users/andres.rambao/.opencode/bin:$PATH
