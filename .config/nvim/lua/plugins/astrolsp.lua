@@ -1,17 +1,3 @@
--- Función para detectar si el proyecto tiene archivos de configuración de formato
-local function has_formatter_config()
-  local root_patterns = { ".prettierrc", ".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" }
-  local cwd = vim.fn.getcwd()
-
-  for _, pattern in ipairs(root_patterns) do
-    if vim.fn.filereadable(cwd .. "/" .. pattern) == 1 then
-      return true
-    end
-  end
-
-  return false
-end
-
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -22,10 +8,9 @@ return {
       inlay_hints = false,
       semantic_tokens = true,
     },
+    -- Formatting delegado a conform.nvim (ver plugins/conform.lua)
     formatting = {
-      format_on_save = {
-        enabled = has_formatter_config(),
-      },
+      format_on_save = { enabled = false },
       disabled = {},
       timeout_ms = 1000,
     },
