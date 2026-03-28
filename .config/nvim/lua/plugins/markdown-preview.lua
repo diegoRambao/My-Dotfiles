@@ -16,18 +16,30 @@ return {
     opts = {
       -- Render on file open
       enabled = true,
-      -- Render in these modes (normal and command)
-      render_modes = { "n", "c" },
+      -- More similar to VSCode: render only while viewing, not while typing commands
+      render_modes = { "n" },
       -- Heading styles
       heading = {
         enabled = true,
         icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
+        sign = false,
+        width = "block",
+        position = "inline",
+        border = false,
+        left_pad = 0,
+        right_pad = 0,
       },
       -- Code block rendering
       code = {
         enabled = true,
-        style = "full",
-        border = "thin",
+        sign = false,
+        width = "block",
+        border = "hide",
+        language_name = true,
+        language_icon = false,
+      },
+      paragraph = {
+        enabled = true,
       },
       -- Bullet list rendering
       bullet = {

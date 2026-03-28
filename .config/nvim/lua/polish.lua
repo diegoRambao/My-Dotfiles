@@ -54,3 +54,56 @@ vim.api.nvim_create_user_command("NewFile", function(opts)
   end
 end, { nargs = "?", desc = "Crear un nuevo archivo en el proyecto" })
 
+-- ── Markdown smart wrap ──
+-- Wrap para párrafos, pero sin romper visualmente tablas o bloques de código.
+local markdown_wrap_group = vim.api.nvim_create_augroup("markdown_wrap", { clear = true })
+
+local function is_markdown_table_line(line)
+  if line == "" then return false end
+  return line:match("^%s*|.*|%s*$") ~= nil
+end
+
+local function is_inside_markdown_fence(bufnr, row)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, row, false)
+  local inside_fence = false
+
+  for _, line in ipairs(lines) do
+    if line:match("^%s*```") or line:match("^%s*~~~") then inside_fence = not inside_fence end
+  end
+
+  return inside_fence
+end
+
+local function update_markdown_wrap(bufnr)
+  bufnr = bufnr or 0
+  if vim.bo[bufnr].filetype ~= "markdown" then return end
+
+  local win = vim.api.nvim_get_current_win()
+  if vim.api.nvim_win_get_buf(win) ~= bufnr then return end
+
+  local row = vim.api.nvim_win_get_cursor(win)[1]
+  local line = vim.api.nvim_buf_get_lines(bufnr, row - 1, row, false)[1] or ""
+  local disable_wrap = is_markdown_table_line(line) or is_inside_markdown_fence(bufnr, row)
+
+  vim.wo[win].wrap = not disable_wrap
+  vim.wo[win].linebreak = not disable_wrap
+  vim.wo[win].breakindent = not disable_wrap
+  vim.wo[win].showbreak = disable_wrap and "" or "↪ "
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = markdown_wrap_group,
+  pattern = "markdown",
+  desc = "Enable smart wrap for Markdown",
+  callback = function(args)
+    update_markdown_wrap(args.buf)
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorMoved", "CursorMovedI", "TextChanged", "TextChangedI", "InsertLeave" }, {
+  group = markdown_wrap_group,
+  desc = "Update wrap mode for Markdown tables and code fences",
+  callback = function(args)
+    update_markdown_wrap(args.buf)
+  end,
+})
