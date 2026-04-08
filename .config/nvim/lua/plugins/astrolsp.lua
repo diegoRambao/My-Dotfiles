@@ -14,7 +14,11 @@ return {
       disabled = {},
       timeout_ms = 1000,
     },
-    servers = { "angularls" },
+    servers = {
+      "angularls",
+      "html",
+      "cssls",
+    },
     ---@diagnostic disable: missing-fields
     config = {
       -- ── Angular Language Server ──

@@ -6,3 +6,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash"
+. "$HOME/.cargo/env"
